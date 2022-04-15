@@ -11,8 +11,8 @@ import { ResultsComponent } from './results/results.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatListModule } from '@angular/material/list';
-import { MatCardModule } from '@angular/material/card';
+import {MaterialModule} from './material-module';
+
 import { SkeletonModule } from 'primeng/skeleton';
 import { TableModule } from 'primeng/table';
 import { CaptchaModule } from 'primeng/captcha';
@@ -37,8 +37,7 @@ import { LibraryComponent } from './library/library.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatListModule,
-    MatCardModule,
+    MaterialModule,
     SkeletonModule,
     TableModule,
     CaptchaModule,
