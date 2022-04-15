@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../_models/user';
-import {Role} from '../_models/role';
+import {Provider} from '../_models/Provider';
 
 
 @Injectable({ providedIn: 'root' })
@@ -30,8 +30,8 @@ export class AuthService {
     // In the future we will do server authentication here. For now we will simulate it.
   return new Observable(subscriber => {
 
-  if (username === 'admin' && password === '123') {
-     const user: User = {username, role: Role.admin, token: 'some_random_token'};
+  if (username === 'admin' && password === '123123') {
+     const user: User = {username, token: 'some_random_token', platform: Provider.spotify};
 
      localStorage.setItem('currentUser', JSON.stringify(user));
     //  notify all subscribers that user has logged in.
@@ -41,8 +41,8 @@ export class AuthService {
       subscriber.next('Logged in!');
       this.currentUserSubject.next(user);
       }, 1000);
-  } else if (username === 'user' && password === '123') {
-    const user: User = {username, role: Role.user, token: 'some_random_token'};
+  } else if (username === 'user' && password === '123123') {
+    const user: User = {username, token: 'some_random_token', platform: Provider.spotify};
 
     localStorage.setItem('currentUser', JSON.stringify(user));
    //  notify all subscribers that user has logged in.

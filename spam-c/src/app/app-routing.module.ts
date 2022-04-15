@@ -5,18 +5,18 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
 import { LibraryComponent } from './library/library.component';
 import { ResultsComponent } from './results/results.component';
-import { ConvertComponent } from './convert/convert.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'convert', component: ConvertComponent },
   { path: 'results', component: ResultsComponent },
   { path: 'library', component: LibraryComponent },
+  { path: 'settings', component: SettingsComponent },
 ];
 
 @NgModule({

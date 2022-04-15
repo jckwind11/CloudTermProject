@@ -3,3 +3,5 @@ Spotify Black - #191414
 
 AM Pink - #f94c57
 AM White - #c2cad7
+
+Main Background - #2F4F4F

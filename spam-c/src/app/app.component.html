@@ -1,13 +1,11 @@
-<mat-toolbar *ngIf="isUser">
+<mat-toolbar *ngIf="isUser" class="bar">
 
     <button mat-button routerLink="/">Home</button>
 
-    <button mat-button routerLink="/library">Convert</button>
-
-    <button mat-button routerLink="/rankings">Rankings</button>
+    <button mat-button routerLink="/library">Library</button>
 
     <button mat-button routerLink="/settings">Settings</button>
 
-    <button mat-button (click)="logout()">Logout </button>
+    <button mat-button (click)="logout()">Logout</button>
 </mat-toolbar>
 <router-outlet></router-outlet>
