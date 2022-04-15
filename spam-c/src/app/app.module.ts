@@ -9,6 +9,19 @@ import { LoginComponent } from './login/login.component';
 import { ConvertComponent } from './convert/convert.component';
 import { ResultsComponent } from './results/results.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { SkeletonModule } from 'primeng/skeleton';
+import { TableModule } from 'primeng/table';
+import { CaptchaModule } from 'primeng/captcha';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { InputTextModule } from 'primeng/inputtext';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { LibraryComponent } from './library/library.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +29,22 @@ import { ResultsComponent } from './results/results.component';
     RegisterComponent,
     LoginComponent,
     ConvertComponent,
-    ResultsComponent
+    ResultsComponent,
+    WelcomeComponent,
+    LibraryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatCardModule,
+    SkeletonModule,
+    TableModule,
+    CaptchaModule,
+    AccordionModule,
+    ProgressSpinnerModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

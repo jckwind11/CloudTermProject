@@ -1,0 +1,10 @@
+.main_list {
+    text-align: center;
+    margin: 100px auto;
+    width: 25%;
+    background-color: beige;
+}
+
+.list {
+    height: 100%;
+}
