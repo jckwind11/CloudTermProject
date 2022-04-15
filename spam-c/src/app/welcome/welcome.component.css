@@ -1,0 +1,81 @@
+.App {
+    text-align: center;
+    background-color: #191414;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.material-icons.school {
+    font-size: 30vh !important;
+    color: #1DB954;
+    pointer-events: none;
+    border-radius: 50%;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #1DB954;
+    border-radius: 50%;
+}
+
+.App-header {
+    min-height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Sign-Up-Button {
+    background-color: #f94c57;
+    color: white;
+    font-size: 20px;
+    padding: 10px 60px;
+    border-radius: 5px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.Login-Button {
+    color: #f94c57;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.text {
+    color: #c2cad7;
+}
+
+.image-blurred-edge.people {
+    background-image: url('../../assets/apple-music-playlist.jpeg');
+    height: 300px;
+    width: 25%;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-size: cover;
+    border-radius: 50%;
+    outline: 5px solid #191414;
+    outline-offset: -2px;
+    box-shadow: 0 0 8px 8px #191414 inset;
+}
+
+.image-blurred-edge.playlist {
+    background-image: url('../../assets/spotify-playlist.jpeg');
+    height: 300px;
+    width: 25%;
+    margin-left: 20px;
+    margin-top: 300px;
+    float: left;
+    background-size: cover;
+    border-radius: 50%;
+    outline: 5px solid #191414;
+    outline-offset: -2px;
+    box-shadow: 0 0 8px 8px #191414 inset;
+}
