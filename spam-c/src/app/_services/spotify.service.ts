@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SpotifyPlaylist } from '../_models/SpotifyPlaylist';
 import { SpotifySong } from '../_models/SpotifySong';
 
 @Injectable({
@@ -11,7 +12,9 @@ export class SpotifyService {
 
   getTracksFor(playlist: string) {
     return new Observable<SpotifySong[]>(subscriber => {
-      if (this.hardCodedTracks.length > 0) {
+      if(playlist.length == 0) {
+        setTimeout(() => { subscriber.next([]); }, 1000);
+      } else if (this.hardCodedTracks.length > 0) {
         setTimeout(() => { subscriber.next(this.hardCodedTracks); }, 1000);
       } else {
         setTimeout(() => { subscriber.error('No songs in the DB'); }, 1000);
@@ -19,6 +22,54 @@ export class SpotifyService {
 
     });
   }
+
+  getPlaylists() {
+    return new Observable<SpotifyPlaylist[]>(subscriber => {
+      if (this.hardCodedTracks.length > 0) {
+        setTimeout(() => { subscriber.next(this.hardCodedPlaylists); }, 1000);
+      } else {
+        setTimeout(() => { subscriber.error('No songs in the DB'); }, 1000);
+      }
+
+    });
+  }
+  // items(added_by.id,track(name,artists(name),href,album(name,images,href)))
+  hardCodedPlaylists: SpotifyPlaylist[] = [
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/5yTtwrwuxkbhkEGPhgikd2"
+      },
+      "href": "https://api.spotify.com/v1/playlists/5yTtwrwuxkbhkEGPhgikd2",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706c0000bebb456cfec42d67fb7dd48988ec",
+          "width": null
+        }
+      ],
+      "name": "old",
+      "owner": {
+        "display_name": "jckwind11",
+      }
+    },  
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/playlist/2NGa4yTkqH9gvq3Ze084EW"
+      },
+      "href": "https://api.spotify.com/v1/playlists/2NGa4yTkqH9gvq3Ze084EW",
+      "images": [
+        {
+          "height": null,
+          "url": "https://i.scdn.co/image/ab67706c0000bebb3d2394c1e4adac41e599d603",
+          "width": null
+        }
+      ],
+      "name": "zen",
+      "owner": {
+        "display_name": "jckwind11",
+      }
+    }
+  ]
 
   hardCodedTracks: SpotifySong[]  = [
     {

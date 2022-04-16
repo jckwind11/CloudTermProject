@@ -1,16 +1,18 @@
 <div class="holder">
     <div class="input-area">
-        <accordion class="drop-down">
-            <accordion-group heading="My Playlists">
-                <p>We use NGX-Bootstrap to create these collapsable sections</p>
-                <p>We will use these to show lists with detail in our app</p>
-            </accordion-group>
-        </accordion>
-        <accordion class="drop-down">
-            <accordion-group heading="My Converted Playlists">
-                <p>We use NGX-Bootstrap to create these collapsable sections</p>
-                <p>We will use these to show lists with detail in our app</p>
-            </accordion-group>
-        </accordion>
+        <mat-card class="song-container">
+            <mat-card-header>
+                <mat-card-title>My Playlists</mat-card-title>
+            </mat-card-header>
+            <playlist-row class="card-item" *ngFor="let playlist of playlists" [playlist]="playlist">
+            </playlist-row>
+        </mat-card>
+        <mat-card class="song-container">
+            <mat-card-header>
+                <mat-card-title>My Converted Playlists</mat-card-title>
+            </mat-card-header>
+            <playlist-row class="card-item" *ngFor="let playlist of convertedPlaylists" [playlist]="playlist">
+            </playlist-row>
+        </mat-card>
     </div>
 </div>

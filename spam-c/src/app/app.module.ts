@@ -23,6 +23,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LibraryComponent } from './library/library.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SongRowComponent } from './song-row/song-row.component';
+import { PlaylistRowComponent } from './playlist-row/playlist-row.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SongRowComponent } from './song-row/song-row.component';
     WelcomeComponent,
     LibraryComponent,
     SettingsComponent,
-    SongRowComponent
+    SongRowComponent,
+    PlaylistRowComponent
   ],
   imports: [
     BrowserModule,

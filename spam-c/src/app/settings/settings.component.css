@@ -1,0 +1,23 @@
+.holder {
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+    background-color: #2F4F4F;
+}
+
+.login-card {
+    max-width: 20%;
+    margin: 0 auto;
+    border: 3px solid black;
+    border-radius: 5%;
+}
+
+.am-button {
+    color: white;
+    background-color: #f94c57;
+}
+
+.spotify-button {
+    background-color: #1DB954;
+}

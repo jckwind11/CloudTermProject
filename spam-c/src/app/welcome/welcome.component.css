@@ -1,6 +1,6 @@
 .App {
     text-align: center;
-    background-color: #191414;
+    background-color: #2F4F4F;
     min-width: 100%;
     display: flex;
     flex-direction: row;
@@ -14,7 +14,7 @@
     border-radius: 50%;
     padding: 20px;
     background-color: white;
-    border: 2px solid #1DB954;
+    border: 3px solid black;
     border-radius: 50%;
 }
 

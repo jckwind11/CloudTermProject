@@ -2,7 +2,6 @@
     width: 100%;
     height: 100vh;
     padding-top: 100px;
-    background-color: #2F4F4F;
     text-align: center;
 }
 
@@ -12,8 +11,28 @@
     justify-content: center;
 }
 
-.drop-down {
+.input-field {
     margin: 0 50px;
     width: 300px;
     text-align: center;
+}
+
+.input-area-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.song-container {
+    width: 300px;
+    margin: 0 107.5px;
+}
+
+.card-item {
+    margin: 5px;
+    height: 75px;
+}
+
+body {
+    background-color: #2F4F4F;
 }

@@ -1,20 +1,27 @@
 <div class="holder">
     <div class="input-area">
-        <input class="input-field" type="text" pInputText placeholder="Spotify playlist link" />
-        <button mat-raised-button color="accent">
+        <input class="input-field" type="text" pInputText placeholder="Spotify playlist link" (input)="gotInputPlaylist()" [(ngModel)]="spotifyLink" />
+        <button mat-raised-button color="accent" (click)="convert()">
             <mat-icon>compare_arrows</mat-icon>
             Convert!
         </button>
-        <input class="input-field" type="text" pInputText placeholder="Apple Music playlist link" />
+        <input class="input-field" type="text" pInputText placeholder="Apple Music playlist link" [(ngModel)]="appleLink" />
     </div>
     <br><br>
     <div class="input-area">
-        <input class="input-field" type="text" pInputText placeholder="Spotify playlist link" />
-        <button mat-raised-button color="accent">
-            <mat-icon>compare_arrows</mat-icon>
-            Convert!
-        </button>
-        <input class="input-field" type="text" pInputText placeholder="Apple Music playlist link" />
+        <mat-card class="song-container" [ngStyle]="{'visibility': hasSongs ? 'visible' : 'hidden'}">
+            <mat-card-header>
+                <mat-card-title>Songs to Convert</mat-card-title>
+            </mat-card-header>
+            <song-row class="card-item" *ngFor="let song of songs" [song]="song"></song-row>
+        </mat-card>
+        <p-progressSpinner [ngStyle]="{'visibility': loading ? 'visible' : 'hidden'}"></p-progressSpinner>
+        <mat-card class="song-container" [ngStyle]="{'visibility': hasConvertedSongs ? 'visible' : 'hidden'}">
+            <mat-card-header>
+                <mat-card-title>Songs Converted</mat-card-title>
+            </mat-card-header>
+            <song-row class="card-item" *ngFor="let song of convertedSongs" [song]="song"></song-row>
+        </mat-card>
     </div>
 </div>
 <!-- <mat-card class="main_list">

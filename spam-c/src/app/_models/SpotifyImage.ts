@@ -1,7 +1,7 @@
 export class SpotifyImage {
-    height: number;
+    height?: number;
     url: string;
-    width: number;
+    width?: number;
 }
 
 // "images": [

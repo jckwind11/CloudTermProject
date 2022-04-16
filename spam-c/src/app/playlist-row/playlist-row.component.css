@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-    height: 75px;
+    height: 90px;
     vertical-align: middle;
 }
 
@@ -14,4 +14,8 @@
 
 img {
     object-fit: contain;
+}
+
+button {
+    color: #f94c57
 }
