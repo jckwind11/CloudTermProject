@@ -10,8 +10,8 @@ import { ResultsComponent } from './results/results.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MaterialModule} from './material-module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MaterialModule } from './material-module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SkeletonModule } from 'primeng/skeleton';
 import { TableModule } from 'primeng/table';
@@ -24,6 +24,11 @@ import { LibraryComponent } from './library/library.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SongRowComponent } from './song-row/song-row.component';
 import { PlaylistRowComponent } from './playlist-row/playlist-row.component';
+
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { ErrorInterceptor } from './_interceptors/error.interceptor';
+
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,8 +56,10 @@ import { PlaylistRowComponent } from './playlist-row/playlist-row.component';
     InputTextModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

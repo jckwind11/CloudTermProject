@@ -1,22 +1,21 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {User} from '../_models/user';
-import {Provider} from '../_models/Provider';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, map } from 'rxjs';
+import { User } from '../_models/user';
+import { HttpClient } from '@angular/common/http';
+import { Provider } from '../_models/Provider';
 
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  private currentUserSubject: BehaviorSubject<User>;
+  public currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
 
-    // this is used by app.component.ts
     // tslint:disable-next-line:max-line-length
-    // currentUser is turned into an Observable that will allow other parts of the app to subscribe and get notified when currentUserSubject changes.
     this.currentUser = this.currentUserSubject.asObservable();
 
   }
@@ -27,39 +26,16 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    // In the future we will do server authentication here. For now we will simulate it.
-  return new Observable(subscriber => {
+    return this.http.post<any>(`http://localhost:3030/user/login`, { username, password })
+      .pipe(map(user => {
+        // login successful if there's a jwt token in the response
+        if (user && user.token) {
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUserSubject.next(user);
+        }
 
-  if (username === 'admin' && password === '123123') {
-     const user: User = {username, token: 'some_random_token', platform: Provider.spotify};
-
-     localStorage.setItem('currentUser', JSON.stringify(user));
-    //  notify all subscribers that user has logged in.
-
-
-     setTimeout(() => {
-      subscriber.next('Logged in!');
-      this.currentUserSubject.next(user);
-      }, 1000);
-  } else if (username === 'user' && password === '123123') {
-    const user: User = {username, token: 'some_random_token', platform: Provider.spotify};
-
-    localStorage.setItem('currentUser', JSON.stringify(user));
-   //  notify all subscribers that user has logged in.
-
-
-    setTimeout(() => {
-     subscriber.next('Logged in!');
-     this.currentUserSubject.next(user);
-     }, 1000);
-  }  else {
-    // reject
-    setTimeout(() => {
-      subscriber.error('Wrong username or password');
-    }, 1000);
-  }
-
-});
+        return user;
+      }));
 
   }
 

@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'spam-c';
 
   currentUser: User;
+  acronym: string;
 
 
   constructor(  private router: Router,

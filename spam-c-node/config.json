@@ -1,0 +1,4 @@
+{
+    "secret": "jack.wind.mike.gannon.chase.lastname",
+    "connectionString": "mongodb://localhost/spamc"
+}

@@ -6,3 +6,13 @@
     color: white;
     background-color: black;
 }
+
+.username {
+    text-align: center;
+    color: white;
+    font-style: normal;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
