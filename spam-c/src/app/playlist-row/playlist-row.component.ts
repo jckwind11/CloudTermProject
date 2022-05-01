@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SpotifyPlaylist } from '../_models/SpotifyPlaylist';
+import { SpotifyPlaylist } from '../_models/Spotify/SpotifyPlaylist';
 
 @Component({
   selector: 'playlist-row',

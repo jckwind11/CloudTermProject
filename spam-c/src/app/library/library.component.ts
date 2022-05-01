@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpotifyPlaylist } from '../_models/SpotifyPlaylist';
+import { SpotifyPlaylist } from '../_models/Spotify/SpotifyPlaylist';
 import { ViewEncapsulation } from '@angular/core';
 
 

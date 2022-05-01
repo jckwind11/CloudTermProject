@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-    height: 75px;
+    /* height: 75px; */
     vertical-align: middle;
 }
 
@@ -13,5 +13,7 @@
 }
 
 img {
+    width: 64px;
+    height: 64px;
     object-fit: contain;
 }

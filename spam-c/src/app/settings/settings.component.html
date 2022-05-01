@@ -11,9 +11,13 @@
                 Connect your Spotify account
             </button>
             <br><br>
-            <button mat-raised-button class="am-button">
+            <button mat-raised-button class="am-button" (click)="authorize()" *ngIf="!this.appleAuth.isAuthorized">
                 <mat-icon>apple</mat-icon>
                 Connect your Apple Music account
+            </button>
+            <button mat-raised-button class="am-button" (click)="unauthorize()" *ngIf="this.appleAuth.isAuthorized">
+                <mat-icon>apple</mat-icon>
+                Disconnect your Apple Music account
             </button>
             <br><br>
         </mat-card-content>

@@ -1,11 +1,13 @@
 import { SpotifyAlbum } from './SpotifyAlbum';
 import { SpotifyArtist} from './SpotifyArtist';
+import { SpotifyExternalIDs } from './SpotifyExternalIDs';
 
 export class SpotifyTrack {
     href: string;
     name: string;
     album: SpotifyAlbum;
     artists: SpotifyArtist[];
+    external_ids: SpotifyExternalIDs;
 }
 
 
