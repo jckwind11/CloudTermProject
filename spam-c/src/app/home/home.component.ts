@@ -80,9 +80,10 @@ export class HomeComponent implements OnInit {
         const songsFromChunk: AppleResponse = await this.appleService.getSongsFromISRC(chunk).toPromise();
         songsFromChunk.data = songsFromChunk.data.filter((value, index, self) =>
           index === self.findIndex((song) => (
-            song.attributes.isrc === value.attributes.isrc  && song.attributes.name === value.attributes.name 
+            song.attributes.isrc === value.attributes.isrc 
           ))
         )
+        songsFromChunk.data.sort((a, b) => chunk.indexOf(a.attributes.isrc) - chunk.indexOf(b.attributes.isrc));
         this.convertedSongs = this.convertedSongs.concat(songsFromChunk.data);
       }
       const ids = this.convertedSongs.map(song => { return { id: song.id, type: song.type } });
