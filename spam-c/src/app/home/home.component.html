@@ -5,7 +5,8 @@
             <mat-icon>compare_arrows</mat-icon>
             Convert!
         </button>
-        <input class="input-field" type="text" pInputText placeholder="Apple Music playlist link" [(ngModel)]="appleLink" />
+        <input class="input-field" type="text" pInputText placeholder="Apple Music playlist link" [(ngModel)]="appleLink" *ngIf="appleLink.length == 0" />
+        <a mat-raised-button class="input-field" href="{{appleLink}}" *ngIf="appleLink.length > 0">Open {{playlistName}} on Apple Music</a>
     </div>
     <br><br>
     <div class="input-area">

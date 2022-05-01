@@ -32,12 +32,7 @@ export class AppleMusicService {
   public addSongsToPLaylist(playlistID: string, ids: Object[]) {
     const payload = {
       data: ids
-      // tracks: {
-      //   // data: ids
-      //   data: [{id: "1621119107", type: "songs"}]
-      // }
     }
-    // const payload = {'tracks': {'data': [{'id': '310730206', 'type': 'songs'}, {'id': '310730208', 'type': 'songs'}]}}
     return this.http.post(`https://api.music.apple.com/v1/me/library/playlists/` + playlistID + `/tracks`, payload, { headers: this.getApiHeaders() });
   }
 

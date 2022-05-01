@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   playlistDescription: string = '';
 
-  spotifyLink: string = 'https://open.spotify.com/playlist/0sxZ0TSlk4fE0xe76yXebp?si=3541557887564224';
+  spotifyLink: string = '';
 
   appleLink: string = '';
 
@@ -88,6 +88,7 @@ export class HomeComponent implements OnInit {
       }
       const ids = this.convertedSongs.map(song => { return { id: song.id, type: song.type } });
       await this.appleService.addSongsToPLaylist(playlistID, ids).toPromise();
+      this.appleLink = "https://music.apple.com/library/playlist/" + playlistID;
       this.loading = false;
     } else {
       this.loading = false;
