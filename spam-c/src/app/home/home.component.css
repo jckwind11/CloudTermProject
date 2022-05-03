@@ -25,7 +25,7 @@
 
 .song-container {
     width: 300px;
-    margin: 0 57.5px;
+    margin: 0 25px;
 }
 
 .card-item {
@@ -35,4 +35,8 @@
 
 body {
     background-color: #2F4F4F;
+}
+
+.failedIDsText {
+    color: white
 }

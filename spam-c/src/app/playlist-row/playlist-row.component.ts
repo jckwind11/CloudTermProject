@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SpotifyPlaylist } from '../_models/Spotify/SpotifyPlaylist';
+import { ConvertedPlaylist } from '../_models/ConvertedPlaylist';
 
 @Component({
   selector: 'playlist-row',
@@ -8,18 +8,21 @@ import { SpotifyPlaylist } from '../_models/Spotify/SpotifyPlaylist';
 })
 export class PlaylistRowComponent implements OnInit {
 
-  @Input() playlist: SpotifyPlaylist;
+  @Input() playlist: ConvertedPlaylist;
 
   imageUrl: string = '';
   owner: string = '';
   title: string = '';
+  url: string = "";
 
   constructor() { }
 
   ngOnInit(): void {
-    this.imageUrl = this.playlist.images[0].url;
-    this.owner = this.playlist.owner.display_name;
-    this.title = this.playlist.name;
+    this.imageUrl = this.playlist.playlist_image_url;
+    console.log(this.imageUrl);
+    this.title = this.playlist.name
+    this.owner = this.playlist.description;
+    this.url = "https://music.apple.com/library/playlist/" + this.playlist.playlist_id;
   }
 
 }

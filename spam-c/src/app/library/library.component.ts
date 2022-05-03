@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SpotifyPlaylist } from '../_models/Spotify/SpotifyPlaylist';
+import { ConvertedPlaylist } from '../_models/ConvertedPlaylist';
 import { ViewEncapsulation } from '@angular/core';
 
 
-import { SpotifyService } from '../_services/spotify.service';
 import { NotificationService } from '../_services/notification.service';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-library',
@@ -14,17 +14,14 @@ import { NotificationService } from '../_services/notification.service';
 })
 export class LibraryComponent implements OnInit {
 
-  playlists: SpotifyPlaylist[] = [];
-
-  convertedPlaylists: SpotifyPlaylist[] = [];
+  playlists: ConvertedPlaylist[] = [];
 
   constructor(
-    private spotifyService: SpotifyService,
+    private userService: UserService,
     private notifService: NotificationService
   ) { }
 
   ngOnInit(): void {
-    this.getMyPlaylist();
     this.getConvertedPlaylist();
   }
 
@@ -32,24 +29,13 @@ export class LibraryComponent implements OnInit {
     return this.playlists.length > 0
   }
 
-  get hasConvertedPlaylists() {
-    return this.convertedPlaylists.length > 0
-  }
-
-  getMyPlaylist() {
-    this.spotifyService.getPlaylists().subscribe(
-      playlists => {
-        this.playlists = playlists;
-      },
-      error => { this.notifService.showNotif(error, 'error'); });
-  }
 
   getConvertedPlaylist() {
-    this.spotifyService.getPlaylists().subscribe(
-      playlists => {
-        this.convertedPlaylists = playlists;
-      },
-      error => { this.notifService.showNotif(error, 'error'); });
+    this.userService.getAll().subscribe(playlists => {
+      this.playlists = playlists;
+    }, error => {
+      console.log(error);
+    })
   }
 
 }

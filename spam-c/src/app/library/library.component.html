@@ -2,16 +2,9 @@
     <div class="input-area">
         <mat-card class="song-container">
             <mat-card-header>
-                <mat-card-title>My Playlists</mat-card-title>
-            </mat-card-header>
-            <playlist-row class="card-item" *ngFor="let playlist of playlists" [playlist]="playlist">
-            </playlist-row>
-        </mat-card>
-        <mat-card class="song-container">
-            <mat-card-header>
                 <mat-card-title>My Converted Playlists</mat-card-title>
             </mat-card-header>
-            <playlist-row class="card-item" *ngFor="let playlist of convertedPlaylists" [playlist]="playlist">
+            <playlist-row class="card-item" *ngFor="let playlist of playlists" [playlist]="playlist">
             </playlist-row>
         </mat-card>
     </div>

@@ -15,7 +15,7 @@ export class SpotifyService {
   getTracksFor(playlist: string): Observable<SpotifyPlaylistTracksResponse> {
     const url = this.playlistTracksURL(playlist);
     if (url == null) {
-      return throwError("Please Provide a Valid URL");
+      return throwError({ status: 11, message: "Please Provide a Valid URL"});
     }
     return this.http.get<SpotifyPlaylistTracksResponse>(url, { headers: this.getApiHeaders() });
   }
@@ -23,6 +23,15 @@ export class SpotifyService {
   getPlaylists() {
     return new Observable<SpotifyPlaylist[]>(subscriber => {
     });
+  }
+
+  public getPlaylistImageURL(playlistLink: string) {
+    const id = this.playlistID(playlistLink);
+    if (id == null) {
+      return null;
+    }
+    const url = `https://api.spotify.com/v1/playlists/${id}/images`;
+    return this.http.get(url, { headers: this.getApiHeaders() });
   }
   // items(added_by.id,track(name,artists(name),href,album(name,images,href)))
 
@@ -34,7 +43,7 @@ export class SpotifyService {
     return `https://api.spotify.com/v1/playlists/` + id + `?market=ES&fields=name%2Cdescription%2Ctracks(items(added_by.id%2Ctrack(external_ids(isrc)%2Cname%2Cartists(name)%2Chref%2Calbum(name%2Cimages%2Chref))))`;
   }
 
-  private playlistID(playlistLink: string) {
+  public playlistID(playlistLink: string) {
     var url: URL;
     try {
       url = new URL(playlistLink);

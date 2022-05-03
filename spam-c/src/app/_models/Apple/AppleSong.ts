@@ -11,6 +11,7 @@ export class AppleSong {
         name: string;
         isrc: string;
         url: string;
+        albumName: string
     }
 }
 

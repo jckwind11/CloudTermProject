@@ -3,13 +3,16 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('../helpers/database');
 const User = db.User;
+const Playlist = db.Playlist;
 
 
 
 module.exports = {
     login,
     getByUsername,
-    addUser
+    addUser,
+    getAllPlaylists,
+    addPlaylist,
 }
 
 async function login({ username, password }) {
@@ -56,4 +59,20 @@ async function addUser(userParam) {
         token
     };
 
+}
+
+async function getAllPlaylists() {
+    return await Playlist.find({});
+}
+
+async function addPlaylist(playlist) {
+
+    if (await Playlist.findOne({ playlist_id: playlist.playlist_id })) {
+        throw 'Playlist already created';
+    }
+    let newPlaylist = playlist;
+    dbPlaylist = new Playlist(newPlaylist);
+
+    await dbPlaylist.save();
+    return playlist
 }

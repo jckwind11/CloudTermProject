@@ -3,7 +3,7 @@ import { SpotifyTrack } from './SpotifyTrack';
 
 export class SpotifySong {
     added_by: SpotifyUser;
-    track: SpotifyTrack;
+    track?: SpotifyTrack;
 }
 
 // {

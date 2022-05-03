@@ -17,14 +17,8 @@
     text-align: center;
 }
 
-.input-area-result {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 .song-container {
-    width: 300px;
+    width: 600px;
     margin: 0 107.5px;
 }
 

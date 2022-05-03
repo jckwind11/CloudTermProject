@@ -1,12 +1,13 @@
-<mat-card>
-    <mat-card-content class="card">
-        <img src="{{imageUrl}}" alt="">
-        <div class="info">
-            <p>{{title}}</p>
-            <p>{{owner}}</p>
+<mat-card class="card">
+    <img [src]="imageUrl" onerror="this.src='../assets/spotify-playlist.jpeg'">
+    <div class="name-holder">
+        <div class="name">
+            <h1>{{title}}</h1>
+            <h3 class="location">{{owner}}</h3>
         </div>
-    </mat-card-content>
-    <mat-card-actions align="start">
-        <button mat-button>Open</button>
-    </mat-card-actions>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div class="button-holder">
+        <a mat-raised-button class="Visit-Button" href="{{url}}"> Open in Apple Music</a>
+    </div>
 </mat-card>
