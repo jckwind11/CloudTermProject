@@ -6,6 +6,7 @@ const schema = new Schema({
     description: { type: String, required: true },
     playlist_id: { type: String, required: true },
     playlist_image_url: { type: String, required: true, default: 1 },
+    createdBy: { type: Schema.Types.ObjectId, ref: 'User' },
     createdDate: { type: Date, default: Date.now }
 });
 

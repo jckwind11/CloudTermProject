@@ -12,6 +12,8 @@ export class AppleMusicAuthService {
 
   private _isAuthorized = false;
 
+  public autoRetry = true;
+
   public musicKit: any;
 
   constructor() { }

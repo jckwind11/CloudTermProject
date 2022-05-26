@@ -25,13 +25,13 @@ function register(req, res, next) {
 }
 
 function getAllPlaylists(req, res, next) {
-    userService.getAllPlaylists()
+    userService.getAllPlaylists(req.user.sub)
         .then(users => res.json(users))
         .catch(err => next(err));
 }
 
 function createPlaylist(req, res, next) {
-    userService.addPlaylist(req.body)
+    userService.addPlaylist(req.body, req.user.sub)
         .then(playlist => playlist ? res.status(200).json({ message: 'Recorded Playlist!' }) : res.status(400).json({ message: 'Could not create playlist' }))
         .catch(err => next(err));
 }

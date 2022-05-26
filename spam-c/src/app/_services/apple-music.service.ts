@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AppleMusicAuthService } from './apple-music-auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppleResponse } from '../_models/Apple/AppleResponse';
+import { AppleRetryResponse } from '../_models/Apple/AppleRetryResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,11 @@ export class AppleMusicService {
       data: ids
     }
     return this.http.post(`https://api.music.apple.com/v1/me/library/playlists/` + playlistID + `/tracks`, payload, { headers: this.getApiHeaders() });
+  }
+
+  public getSongFromName(name: string) {
+    const adjustedName = name.replace(" ", "+");
+    return this.http.get<AppleRetryResponse>(`https://api.music.apple.com/v1/catalog/us/search?types=songs&term=` + adjustedName, { headers: this.getApiHeaders() });
   }
 
   private getApiHeaders(): HttpHeaders {

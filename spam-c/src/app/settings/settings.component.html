@@ -4,17 +4,16 @@
             <mat-card-title>Settings</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+            <br>
+            <mat-slide-toggle [(ngModel)]="appleAuth.autoRetry" class="slider"> Auto-retry failed conversions</mat-slide-toggle>
             <br><br>
             <button mat-raised-button class="am-button" (click)="authorize()" *ngIf="!this.appleAuth.isAuthorized">
-                <mat-icon>apple</mat-icon>
                 Connect your Apple Music account
             </button>
             <button mat-raised-button class="am-button" (click)="unauthorize()" *ngIf="this.appleAuth.isAuthorized">
-                <mat-icon>apple</mat-icon>
                 Disconnect your Apple Music account
             </button>
             <br><br>
         </mat-card-content>
     </mat-card>
-
 </div>

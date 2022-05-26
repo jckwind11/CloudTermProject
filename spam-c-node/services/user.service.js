@@ -61,16 +61,16 @@ async function addUser(userParam) {
 
 }
 
-async function getAllPlaylists() {
-    return await Playlist.find({});
+async function getAllPlaylists(username) {
+    return await Playlist.find({ createdBy: username }).populate('createdBy');
 }
 
-async function addPlaylist(playlist) {
-
+async function addPlaylist(playlist, username) {
     if (await Playlist.findOne({ playlist_id: playlist.playlist_id })) {
         throw 'Playlist already created';
     }
     let newPlaylist = playlist;
+    newPlaylist.createdBy = username;
     dbPlaylist = new Playlist(newPlaylist);
 
     await dbPlaylist.save();

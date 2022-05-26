@@ -1,42 +1,33 @@
 .holder {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     padding-top: 100px;
     text-align: center;
 }
 
-.input-area {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 .input-field {
-    margin: 0 50px;
+    margin: 0 auto;
     width: 300px;
     text-align: center;
 }
 
-.input-area-result {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.song-container {
-    width: 300px;
-    margin: 0 25px;
-}
-
-.card-item {
-    margin: 5px;
-    height: 75px;
-}
-
-body {
-    background-color: #2F4F4F;
-}
-
 .failedIDsText {
     color: white
+}
+
+.must-connect {
+    color: white;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 8px;
+}
+
+.mat-raised-button[disabled] {
+    color: black;
+    background-color: white;
+    opacity: 50%;
+}
+
+.spinner {
+    margin: 16px auto;
 }

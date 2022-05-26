@@ -1,36 +1,25 @@
 <div class="holder">
-    <div class="input-area">
-        <input class="input-field" type="text" pInputText placeholder="Spotify playlist link" (input)="gotInputPlaylist()" [(ngModel)]="spotifyLink" />
-        <button mat-raised-button color="accent" (click)="convert()" [disabled]="!canRetry">
-            <mat-icon>compare_arrows</mat-icon>
-            Convert!
-        </button>
-        <input class="input-field" type="text" pInputText placeholder="Apple Music playlist link" [(ngModel)]="appleLink" *ngIf="appleLink.length == 0" />
-        <a mat-raised-button class="input-field" href="{{appleLink}}" *ngIf="appleLink.length > 0">Open in Apple Music</a>
-    </div>
-    <br><br>
-    <div class="input-area">
-        <mat-card class="song-container" [ngStyle]="{'visibility': hasSongs ? 'visible' : 'hidden'}">
-            <mat-card-header>
-                <mat-card-title>Songs to convert from {{playlistName}}</mat-card-title>
-            </mat-card-header>
-            <song-row class="card-item" *ngFor="let song of songs" [song]="song"></song-row>
-        </mat-card>
-        <div>
-            <p-progressSpinner [ngStyle]="{'visibility': loading ? 'visible' : 'hidden'}"></p-progressSpinner>
-            <div [ngStyle]="{'visibility': (failedIDs.length > 0 && !loading) ? 'visible' : 'hidden'}">
-                <h4 class="failedIDsText">{{failedIDs.length}} songs failed to convert</h4>
-                <button mat-raised-button color="accent" (click)="retry()" ng-disabled="!hasSongs" [ngStyle]="{'visibility': (failedIDs.length > 0 && !loading && canRetry) ? 'visible' : 'hidden'}">
-                    <mat-icon>refresh</mat-icon>
-                    Retry?
-                </button>
-            </div>
-        </div>
-        <mat-card class="song-container" [ngStyle]="{'visibility': hasConvertedSongs ? 'visible' : 'hidden'}">
-            <mat-card-header>
-                <mat-card-title>Songs converted from {{playlistName}}</mat-card-title>
-            </mat-card-header>
-            <song-row class="card-item" *ngFor="let song of convertedSongs" [appleSong]="song"></song-row>
-        </mat-card>
-    </div>
+    <input class="input-field" type="text" pInputText placeholder="Spotify playlist link" [(ngModel)]="spotifyLink" (input)="reset()" [disabled]="loading" />
+    <br *ngIf="!loading">
+    <br *ngIf="!loading">
+    <button mat-raised-button color="accent" (click)="convert()" [disabled]="!canRetry" *ngIf="this.appleAuth.isAuthorized && (failedIDs.length==0 && !loading)">
+        <mat-icon>compare_arrows</mat-icon>
+        Convert!
+    </button>
+    <button mat-raised-button color="accent" (click)="retry()" [disabled]="!hasSongs" *ngIf="failedIDs.length > 0 && !loading && canRetry">
+        <mat-icon>refresh</mat-icon>
+        Retry?
+    </button>
+    <h4 class="failedIDsText" *ngIf="(failedIDs.length > 0 && !loading)">{{failedIDs.length}} songs failed to convert</h4>
+    <mat-spinner *ngIf="loading" class="spinner" color="accent" [diameter]="50"></mat-spinner>
+    <h4 class="must-connect" *ngIf="!this.appleAuth.isAuthorized">
+        You must connect your Apple Music Account in the settings tab before converting a playlist!
+    </h4>
+    <button mat-raised-button color="accent" *ngIf="!this.appleAuth.isAuthorized" routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+        Let's do it!
+    </button>
+    <br *ngIf="!loading && failedIDs.length == 0">
+    <br *ngIf="!loading && failedIDs.length == 0">
+    <a mat-raised-button class="input-field" href="{{appleLink}}" [disabled]="appleLink.length == 0">Open in Apple Music</a>
 </div>
