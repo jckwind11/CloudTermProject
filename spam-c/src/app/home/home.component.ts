@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit {
       }
       this.appleService.addSongsToPLaylist(this.playlistID, ids).toPromise()
         .then(() => {
-          this.appleLink = "https://music.apple.com/library/playlist/" + this.playlistID;
+          this.appleLink = "https://music.apple.com/us/playlist/" + this.playlistID;
           this.loading = false;
         })
         .catch(error => {
