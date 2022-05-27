@@ -4,3 +4,7 @@ body {
     background-color: #2F4F4F;
     position: fixed;
 }
+
+html {
+    background-color: black;
+}
