@@ -104,7 +104,8 @@
                 "deploy": {
                     "builder": "angular-cli-ghpages:deploy",
                     "options": {
-                        "repo": "https://github.com/jckwindsFriend/jckwindsFriend.github.io.git"
+                        "repo": "https://github.com/jckwindsFriend/jckwindsFriend.github.io.git",
+                        "cname": "musicconverter.io"
                     }
                 }
             }
