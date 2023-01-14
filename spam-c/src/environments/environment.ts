@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   appleMusicInfo: {
-    developerToken: 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkhIQjNKMktYS0gifQ.eyJpYXQiOjE2NTAwNTQ2NDYsImV4cCI6MTY2NTc3OTQ0NiwiaXNzIjoiVkxDUlc3SlBZNyJ9.mjZxFP8zmGhbLUCUzV69L1nWp5QrKdpGt3oA71UVBRs5HHGwljvPXsSEIOuB6tZ96ADBtfPSqQUa_Q7fbtk7Gw',
+    developerToken: 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkhIQjNKMktYS0gifQ.eyJpYXQiOjE2NzM2NTgyMzksImV4cCI6MTY4OTM4MzAzOSwiaXNzIjoiVkxDUlc3SlBZNyJ9.m5uP80y1I4harnPVqBsRwIlvLuq3PZx4eXcM1tcudqCyDBz4kT-udeAfT2JzDEkR-sGx5F82i9XKi4a9lAhthA',
     app: {
       name: 'Spam-c',
       build: '2022.4.29',
