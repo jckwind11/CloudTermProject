@@ -39,7 +39,7 @@ export class AppleMusicService {
 
   public getSongFromName(name: string) {
     const adjustedName = name.replace(" ", "+");
-    return this.http.get<AppleRetryResponse>(`https://api.music.apple.com/v1/catalog/us/search?types=songs&term=` + adjustedName, { headers: this.getApiHeaders() });
+    return this.http.get<AppleRetryResponse>(`https://api.music.apple.com/v1/catalog/us/search?types=songs&term=` + encodeURIComponent(adjustedName), { headers: this.getApiHeaders() });
   }
 
   private getApiHeaders(): HttpHeaders {
